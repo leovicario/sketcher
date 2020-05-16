@@ -1,0 +1,37 @@
+html {
+  margin: 0 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  max-height: 100%;
+  margin: 0 auto;
+  float: center;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(rgb(248, 201, 70),rgb(192, 62, 84));
+}
+
+#gridContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  margin: 0;
+  display: inline-grid;
+  grid-gap: 0px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.grid:hover {
+  background-color: rgb(184, 40, 47);
+}
+
+
