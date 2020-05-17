@@ -18,7 +18,7 @@ generateButton.onclick = function() {
     for (i = 0; i < previousGrid.length; i++)
     previousGrid[i].remove()
 
-    let gridNum = window.prompt("Insert grid size! ex. 8, 16, 32");
+    let gridNum = window.prompt("Choose grid size | ex. 8, 16, 32");
     createGrid(gridNum)
 }
 
@@ -74,7 +74,7 @@ resetButton.onclick = function() {
 
 
 function responsiveGUI (){
-    if (window.innerWidth < 600){
+    if (window.innerWidth < window.innerHeight){
     let GUI = document.getElementById("gui");
     let button = document.getElementsByClassName("boton");
     GUI.style.top = "15%"
