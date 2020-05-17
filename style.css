@@ -34,4 +34,36 @@ body {
   background-color: rgb(184, 40, 47);
 }
 
+#gui {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  display: grid;
+  /* border-style: dotted;
+  border-width: 3px; */
+}
 
+button {
+  margin: 1vw;
+  padding: 1vw 4vw;
+  border-style: none;
+  border-radius: 5%;
+  background-color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1vw;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button:active, button:focus {
+  background-color: lightcoral;
+  transition: background-color 0.5s;
+  transition-duration: 0.5s;
+  color: white;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}

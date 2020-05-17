@@ -1,13 +1,30 @@
 const gridContainer = document.querySelector("#gridContainer");
-let gridNum = window.prompt("numero");
 let gridContainerSize = ((window.innerWidth/2 + window.innerHeight/2)/2);
+
 gridContainer.style.width = gridContainerSize + "px";
 gridContainer.style.height = gridContainerSize + "px";
-console.log(gridContainerSize)
-let gridSize = (gridContainerSize/(gridNum));
+
+
+const generateButton = document.querySelector("#generate");
+const blackButton = document.querySelector("#black");
+const randomButton = document.querySelector("#random");
+const resetButton = document.querySelector("#reset");
+
+let entireGrid = document.getElementsByClassName("grid");
+
+generateButton.onclick = function() {
+    // Reset and delete the previous grid.
+    let previousGrid = document.querySelectorAll('.grid');
+    for (i = 0; i < previousGrid.length; i++)
+    previousGrid[i].remove()
+
+    let gridNum = window.prompt("Insert grid size! ex. 8, 16, 32");
+    createGrid(gridNum)
+}
 
 
 function createGrid (gridNum) {
+    const gridSize = (gridContainerSize/(gridNum));
     for (let i = 0; i < gridNum*gridNum; i++) {
     grid = document.createElement("div");
     // grid.textContent = i+1;
@@ -17,25 +34,56 @@ function createGrid (gridNum) {
     grid.style.height =  gridSize + "px";
     grid.style.width =  gridSize + "px";
     gridContainer.appendChild(grid);
-
-    // (window.innerWidth/2) (window.innerHeight/2)
     }
 }
 
-createGrid(gridNum);
 
-// function highlightBG () {
-//     let (divs+i);
-//     divs = document.querySelector("div.div" + i);
-//     console.log(divs);
-//     divs.addEventListener("mouseover", mouseOver);
-//     divs.addEventListener("mouseout", mouseOut);
-    
-//     function mouseOver() {
-//         divs.style.backgroundColor = "blue";
-//     }
-//     function mouseOut() {
-        
-//         divs.style.backgroundColor = "white";
-//     }
-//     }
+
+// createGrid(gridNum);
+
+
+blackButton.onclick = function() {
+    for (let i = 0; i < entireGrid.length; i++){
+    entireGrid[i].addEventListener("mouseover", mouseOver);    
+    function mouseOver() {
+        entireGrid[i].style.backgroundColor = "black";
+    }
+    }
+}
+
+randomButton.onclick = function() {
+    for (let i = 0; i < entireGrid.length; i++){
+    entireGrid[i].addEventListener("mouseover", mouseOver);    
+    function mouseOver() {
+        let randomColor = [Math.floor(Math.random()*16777215).toString(16)];
+        entireGrid[i].style.backgroundColor = "#" + randomColor;
+    }
+    }
+}
+
+resetButton.onclick = function() {  
+    for (let i = 0; i < entireGrid.length; i++){
+    entireGrid[i].style.backgroundColor = null;
+    entireGrid[i].addEventListener("mouseover", mouseOver);    
+    function mouseOver() {
+        entireGrid[i].style.backgroundColor = "";
+    }
+
+}
+}
+
+
+function responsiveGUI (){
+    if (window.innerWidth < 600){
+    let GUI = document.getElementById("gui");
+    let button = document.getElementsByClassName("boton");
+    GUI.style.top = "15%"
+    GUI.style.left = "50%"
+    for (let i = 0; i < button.length; i ++){
+    button[i].style.padding = "2vw 10vw"
+    button[i].style.fontSize = "12px"
+    }
+    }
+}
+
+responsiveGUI()
